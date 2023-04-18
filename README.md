@@ -30,11 +30,11 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
+![screencapture](./src/assets/screencapture.jpeg)
 
 ### Links
 
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Live Site URL: [https://rest-countries-api-with-color-theme-switcher-tau.vercel.app/](https://rest-countries-api-with-color-theme-switcher-tau.vercel.app/)
 
 ## My process
 
