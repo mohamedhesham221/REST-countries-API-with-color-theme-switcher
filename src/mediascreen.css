@@ -1,0 +1,71 @@
+@media only screen and (min-width: 600px) {
+  .country {
+    width: 325px;
+  }
+  .search-country {
+    width: 300px;
+    margin: 100px 0 0 25px;
+    float: left;
+  }
+  .select {
+    float: right;
+    margin: 90px 25px 0 0;
+  }
+  .country-title {
+    width: 100%;
+  }
+  .country-info__flag {
+    width: 100%;
+  }
+}
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .country {
+    width: 230px;
+    height: 310px;
+  }
+  .country-title {
+    width: 100%;
+  }
+  .country-info {
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+  }
+  .country-info__flag {
+    width: 700px;
+  }
+  .country-flag {
+    height: 150px;
+  }
+  .country-info_desc {
+    gap: 8px;
+  }
+  .borders {
+    flex-wrap: nowrap;
+  }
+  .borders ul {
+    width: 400px;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+}
+@media only screen and (min-width: 1440px) {
+  .header {
+    padding: 0 95px;
+  }
+  .country {
+    width: 300px;
+  }
+  .search-country {
+    width: 300px;
+    margin: 100px 0 0 95px;
+    float: left;
+  }
+  .select {
+    float: right;
+    margin: 90px 95px 0 0;
+  }
+}
