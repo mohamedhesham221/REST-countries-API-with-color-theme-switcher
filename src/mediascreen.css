@@ -47,10 +47,26 @@
   .borders ul {
     width: 400px;
   }
+  .additional-info {
+    margin-left: 115px;
+  }
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
+  .header {
+    padding: 0 115px;
+  }
+  .country-info {
+    gap: 75px;
+  }
+  .search-country {
+    margin: 100px 0 0 113px;
+  }
+  .select {
+    margin: 90px 113px 0 0;
+  }
+
 }
 @media only screen and (min-width: 1440px) {
   .header {

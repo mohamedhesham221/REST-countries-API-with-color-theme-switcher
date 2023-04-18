@@ -3,7 +3,7 @@ import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 const Marker = () => {
   return(
     <>
-    <FontAwesomeIcon icon={faLocationDot} style={{color : "#202c37", transform: "scale(2)"}}/>
+    <FontAwesomeIcon icon={faLocationDot} style={{color : "#0c64b6", transform: "scale(3)"}}/>
     </>
   )
 }

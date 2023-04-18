@@ -23,5 +23,5 @@ yarn-debug.log*
 yarn-error.log*
 
 # files
-src/Key_Api.js
+.env
 style-guide.md

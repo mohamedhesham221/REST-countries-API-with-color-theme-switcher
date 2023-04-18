@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import GoogleMapReact from "google-map-react";
 import PropTypes from "prop-types";
-import KeySecure from "../Key_Api";
 import { useEffect, useState } from "react";
 import Marker from "./Marker";
 
@@ -12,11 +11,18 @@ const CountryBase = ({ mood }) => {
   const [mapZoom, setZoom] = useState(5);
   console.log(location.state);
   let langs = [];
+  let subReg = [];
   const extractLangs = () => {
     location.state.languages.map((lang) => {
       return langs.push(lang.name);
     });
   };
+  const extractSubRegs = () => {
+    location.state.regionalBlocs.map((reg) => {
+      return subReg.push(reg.name);
+    });
+  };
+  extractSubRegs();
   extractLangs();
   useEffect(() => {
     if (window.matchMedia("(min-width: 375px)").matches) {
@@ -83,6 +89,9 @@ const CountryBase = ({ mood }) => {
               <li className={mood ? "country-info__text" : null}>
                 <span>Languages:</span> {langs.join(", ")}
               </li>
+              <li className={mood ? "country-info__text" : null}>
+                <span>Regional Blocs:</span> {subReg.join(", ")}
+              </li>
             </ul>
           </div>
           <div className="borders">
@@ -102,7 +111,7 @@ const CountryBase = ({ mood }) => {
       </div>
       <div className="country-map" style={{ height: "100vh", width: "100%" }}>
         <GoogleMapReact
-          bootstrapURLKeys={{ key: KeySecure.key }}
+          bootstrapURLKeys={{ key: process.env.KeySecure }}
           defaultCenter={{
             lat: location.state.latlng[0],
             lng: location.state.latlng[1],
