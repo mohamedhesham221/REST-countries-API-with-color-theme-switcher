@@ -31,6 +31,7 @@ Users should be able to:
 ### Screenshot
 
 ![screencapture](./src/assets/screencapture.jpeg)
+![screencapture1](./src/assets/screencapture1.jpeg)
 
 ### Links
 
@@ -49,26 +50,22 @@ Users should be able to:
 
 ### What I learned
 
-I learned how to integrated google maps and fontawesome icons in react app
+I learned how to integrated maps and fontawesome icons in react app
 To see how you can add code snippets, see below:
 
 ```js
-<GoogleMapReact
-          bootstrapURLKeys={{ key: KeySecure.key }}
-          defaultCenter={{
-            lat: location.state.latlng[0],
-            lng: location.state.latlng[1],
-          }}
-          defaultZoom={mapZoom}
-        >
-          <Marker lat={location.state.latlng[0]} lng={location.state.latlng[1]} />
-        </GoogleMapReact>
-            <FontAwesomeIcon icon={faLocationDot} style={{color : "#202c37", transform: "scale(2)"}}/>
+onst map = new mapboxgl.Map({
+      container: 'map',
+      style: 'mapbox://styles/mapbox/streets-v12',
+      center: [location.state.latlng[1], location.state.latlng[0]],
+      zoom: 7,
+    });
+    const marker = new mapboxgl.Marker().setLngLat([location.state.latlng[1], location.state.latlng[0]]).addTo(map)
 ```
 
 ### Useful resources
 
-- [https://github.com/google-map-react/google-map-react](https://github.com/google-map-react/google-map-react) - This repo helped me how to render map components in the browser using  Google Maps API.
+- [https://docs.mapbox.com/mapbox-gl-js/guides/](https://docs.mapbox.com/mapbox-gl-js/guides/) - This repo helped me how to render map component in the browser using  MapBox Maps Gl.
 - [https://fontawesome.com/v5/docs/web/use-with/react](https://fontawesome.com/v5/docs/web/use-with/react) - helped me understand how to integrate fontawesome in react app.
 
 ## Author

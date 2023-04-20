@@ -1,14 +1,13 @@
 import { useLocation, Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
-import GoogleMapReact from "google-map-react";
 import PropTypes from "prop-types";
-import { useEffect, useState } from "react";
-import Marker from "./Marker";
+import { useEffect } from "react";
+import 'mapbox-gl/dist/mapbox-gl.css';
+import mapboxgl from 'mapbox-gl';
 
 const CountryBase = ({ mood }) => {
   const location = useLocation();
-  const [mapZoom, setZoom] = useState(5);
   console.log(location.state);
   let langs = [];
   let subReg = [];
@@ -25,14 +24,16 @@ const CountryBase = ({ mood }) => {
   extractSubRegs();
   extractLangs();
   useEffect(() => {
-    if (window.matchMedia("(min-width: 375px)").matches) {
-      setZoom(8);
-    } 
-    if (window.matchMedia("(min-width: 992px)").matches) {
-      setZoom(5);
-    }
+    mapboxgl.accessToken = "pk.eyJ1IjoibW9oYW1lZGhlc2hhbTIyIiwiYSI6ImNsZ3AxdWx5MTBrbHQzaW10dzBibDl1d28ifQ.UmmcWx5WF1agqghsdmoUCw";
+    const map = new mapboxgl.Map({
+      container: 'map', // container ID
+      style: 'mapbox://styles/mapbox/streets-v12', // style URL
+      center: [location.state.latlng[1], location.state.latlng[0]], // starting position [lng, lat]
+      zoom: 7, // starting zoom
 
-  }, [])
+    });
+    const marker = new mapboxgl.Marker().setLngLat([location.state.latlng[1], location.state.latlng[0]]).addTo(map)
+  }, [location.state.latlng])
   return (
     <>
       <Link to="/">
@@ -48,9 +49,9 @@ const CountryBase = ({ mood }) => {
           />
         </div>
         <div className="country-info_desc">
-        <p className={`country-title ${mood ? "country-info__text" : null}`}>
-          {location.state.name}
-        </p>
+          <p className={`country-title ${mood ? "country-info__text" : null}`}>
+            {location.state.name}
+          </p>
           <div className="basic-info">
             <ul>
               <li className={mood ? "country-info__text" : null}>
@@ -109,17 +110,7 @@ const CountryBase = ({ mood }) => {
           </div>
         </div>
       </div>
-      <div className="country-map" style={{ height: "100vh", width: "100%" }}>
-        <GoogleMapReact
-          bootstrapURLKeys={{ key: process.env.KeySecure }}
-          defaultCenter={{
-            lat: location.state.latlng[0],
-            lng: location.state.latlng[1],
-          }}
-          defaultZoom={mapZoom}
-        >
-          <Marker lat={location.state.latlng[0]} lng={location.state.latlng[1]} />
-        </GoogleMapReact>
+      <div id="map" style={{ width: "100%", height: "100vh" }}>
       </div>
     </>
   );

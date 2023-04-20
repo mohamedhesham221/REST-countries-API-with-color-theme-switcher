@@ -21,8 +21,8 @@
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
   .country {
-    width: 230px;
-    height: 310px;
+    width: 290px;
+    height: 370px;
   }
   .country-title {
     width: 100%;
@@ -36,7 +36,7 @@
     width: 700px;
   }
   .country-flag {
-    height: 150px;
+    height: 200px;
   }
   .country-info_desc {
     gap: 8px;
