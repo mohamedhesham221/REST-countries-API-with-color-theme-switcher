@@ -23,10 +23,10 @@ const CountryBase = ({ mood }) => {
   };
   extractSubRegs();
   extractLangs();
+  // eslint-disable-next-line import/no-webpack-loader-syntax
+  mapboxgl.workerClass = require('worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker').default;
+  mapboxgl.accessToken = "pk.eyJ1IjoibW9oYW1lZGhlc2hhbTIyIiwiYSI6ImNsZ3AxdWx5MTBrbHQzaW10dzBibDl1d28ifQ.UmmcWx5WF1agqghsdmoUCw";
   useEffect(() => {
-    // eslint-disable-next-line import/no-webpack-loader-syntax
-    mapboxgl.workerClass = require('worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker').default;
-    mapboxgl.accessToken = "pk.eyJ1IjoibW9oYW1lZGhlc2hhbTIyIiwiYSI6ImNsZ3AxdWx5MTBrbHQzaW10dzBibDl1d28ifQ.UmmcWx5WF1agqghsdmoUCw";
     const map = new mapboxgl.Map({
       container: 'map', // container ID
       style: 'mapbox://styles/mapbox/streets-v12', // style URL
