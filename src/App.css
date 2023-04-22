@@ -257,6 +257,7 @@ width: 100%;
 }
 
 .country-info_desc {
+ width: 100%;
   display: flex;
   gap: 25px;
   flex-wrap: wrap;
