@@ -17,9 +17,13 @@ const CountryBase = ({ mood }) => {
     });
   };
   const extractSubRegs = () => {
-    location.state.regionalBlocs.map((reg) => {
-      return subReg.push(reg.name);
-    });
+    if (location.state.regionalBlocs) {
+      location.state.regionalBlocs.map((reg) => {
+        return subReg.push(reg.name);
+      });
+    }else {
+      return subReg.push("None");
+    }
   };
   extractSubRegs();
   extractLangs();
@@ -93,7 +97,7 @@ const CountryBase = ({ mood }) => {
                 <span>Languages:</span> {langs.join(", ")}
               </li>
               <li className={mood ? "country-info__text" : null}>
-                <span>Regional Blocs:</span> {!location.state.regionalBlocs? "None":subReg.join(", ")}
+                <span>Regional Blocs:</span> {subReg.join(", ")}
               </li>
             </ul>
           </div>
