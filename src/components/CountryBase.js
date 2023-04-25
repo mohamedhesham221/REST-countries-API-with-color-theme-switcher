@@ -93,7 +93,7 @@ const CountryBase = ({ mood }) => {
                 <span>Languages:</span> {langs.join(", ")}
               </li>
               <li className={mood ? "country-info__text" : null}>
-                <span>Regional Blocs:</span> {subReg.join(", ")}
+                <span>Regional Blocs:</span> {!location.state.regionalBlocs? "None":subReg.join(", ")}
               </li>
             </ul>
           </div>
